@@ -2,22 +2,20 @@ package ro.fastrackit.classroom;
 
 import java.util.Date;
 
-public class Student {
+
+public class Student implements Human {
     private String firstName;
     private String lastName;
     private String emailAddress;
     private Date dateOfBirth;
     private float avgGrade;
+    private boolean hasFinishedClass;
 
     public Student(String firstName, String lastName, String emailAddress, Date dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public boolean hasFinishedClass() {
-        return this.avgGrade >= 5.0;
     }
 
     public String getFirstName() {
@@ -48,6 +46,11 @@ public class Student {
         return dateOfBirth;
     }
 
+    @Override
+    public ScholarType getType() {
+        return StudentType.BACHELOR;
+    }
+
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
@@ -58,6 +61,14 @@ public class Student {
 
     public void setAvgGrade(float avgGrade) {
         this.avgGrade = avgGrade;
+    }
+
+    public boolean isHasFinishedClass() {
+        return hasFinishedClass;
+    }
+
+    public void setHasFinishedClass(boolean hasFinishedClass) {
+        this.hasFinishedClass = hasFinishedClass;
     }
 }
 
